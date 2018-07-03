@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+        (function(){
+            alert(typeof arguments);
+        })(); // object
+        */
+
+        /*
+        var f = function g(){
+            return 23;
+        }
+        console.log(typeof g()); // Error
+        */
+
+        /*
+        alert((function (x) {
+            delete x;  // 不能删除变量， 不能删除参数， 只能删除对象下面的属性
+            return x;
+        })(1)); // 1
+        */
+
+        /*
+        var y=1,x=y=typeof x;  // 从右到左执行， typeof x 返回undefined（typeof返回的是字符串类型）
+        alert(x);  // "undefined"
+        */
+
+        /*
+        alert((function f(f) {   // 函数作为参数传进去
+            return typeof f();   // typeof 1
+        })(function () {
+            return 1;
+        })); // "number"
+        */
+
+        var foo = {
+            bar : function () {
+                return this.baz;
+            },
+            baz: 1
+
+        };
+
+        /*
+        alert((function () {
+            return typeof arguments[0]();
+        })(foo.bar));  // "function"
+*/
+
+        /*
+        function test(){
+            alert(this);
+        }
+        test();  // 谁调用， this指向谁
+        */
+
+        //alert(typeof (f=foo.bar)()); // "undefined"
+
+        /*
+        var f = (function f(){return "1";}, function g(){return 2;})();
+        alert(typeof f);  // "number" 分组选择符，最后一个， 2
+        */
+        var a = (1,2, 3);
+        //alert(a); // 结果是3， 最后一位
+
+        /*
+        var x = 1;
+        if(function f(){}){   // 函数声明， 返回真， 但是不能写到运算当中， f找不到
+            x += typeof f;
+        }
+        alert(x);   // "1undefined"
+        */
+
+        /*
+        var x = [typeof x, typeof y][1];  // x 为"undefined"
+        alert(typeof x);
+        alert(typeof typeof x);  // "string"
+        */
+
+        /*
+        alert((function(foo){   //foo 为{foo:{bar:1}}
+            return typeof foo.bar;  // foo下面没有bar这个属性
+        })({foo: {bar : 1}}));   // 返回"undefined"
+        */
+
+        /*
+        alert((function f() {
+            function f() {
+                return 1;
+            }
+            return f();
+            function f() {
+                return 2;
+            }
+        })());  // 函数声明提前， 预解析， 返回结果2
+        */
+
+        /*
+        function f(){
+            return f;
+        }
+        alert(typeof f);
+        alert(new f() instanceof f);  // 返回false
+        */
+
+        with(function(x, undefined){}) {
+            alert(length);
+        };  // length是形参的长度， 结果为2
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // 函数嵌套函数, 内部函数可以引用外部函数的参数和变量, 参数和变量不会被垃圾回收机制收回，
+        /*
+        function aaa(a){
+
+            var b  = 5;
+
+            function bbb(){
+                alert(a);
+                alert(b);
+            }
+        }
+
+        // JS 中的垃圾回收机制
+        function aaa(){
+            var a = 1;
+        }
+
+        aaa(); // 执行后被垃圾回收器收回
+        */
+
+        /*
+        function aaa(){
+            var a = 5;
+            function bbb(){
+                alert(a);
+            }
+            return bbb;
+        }
+
+        var c = aaa();
+        c();   // 结果是5
+        */
+
+/*
+        function aaa(){
+            var a = 1;
+            function bbb(){
+                a++;
+                alert(a);
+            };
+            return bbb;
+        }
+        */
+        /*
+        function aaa(){
+            var a = 1;
+            return function(){
+                a++;
+                alert(a);
+            };
+        }
+        var c = aaa();
+        c();    // 结果是2
+        c();    // 结果是3
+        */
+
+        function aaa(){
+            alert(1);
+        }
+        //aaa();
+
+        window.onload = function(){
+
+            var oDiv = document.getElementById('div');
+
+            oDiv.onclick = function(){
+                alert(oDiv.id);
+            };
+
+            window.onunload = function () {
+                oDiv.onclick = null;
+            };
+        };
+
+
+    </script>
+</head>
+<body>
+<div id="div1">aaaa</div>
+</body>
+</html>

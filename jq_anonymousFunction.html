@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-2.0.3.js"></script>
+    <script>
+        //$("<li>test");
+        /*
+        (function () {
+            var a = 10;
+
+            function $(){
+                alert(a);
+            }
+
+            window.$ = $;
+        })();
+*/
+        //$();
+
+        function fn1(){
+            alert(1);
+        }
+
+        function fn2(){
+            alert(2);
+        }
+
+
+        $(function () {
+            /*
+            alert($('#btn').val());
+
+            var cb = $.Callbacks();
+            cb.add(fn1);
+            cb.add(fn2);
+            cb.fire();
+            */
+
+
+            /*
+            var dfd = $.Deferred();
+            setTimeout(function () {
+                alert(1);
+                dfd.resolve();
+            }, 5000);
+            dfd.done(function () {
+                alert(2);
+            })
+
+            $('#div1').animate({left: 100});
+            $('#div1').animate({top: 100});
+            $('#div1').animate({width: 300});
+            */
+
+            //版本号
+            //alert($('#div1').jquery);
+
+            function Aaa(){}
+            // Aaa.prototype.constructor = Aaa;
+
+            Aaa.prototype = {
+                constructor: Aaa,
+                name: 'hello',
+                age: 30
+            }
+            var a1 = new Aaa();
+            //alert(a1.constructor);
+            //$().css('background', 'red');
+            //$('li:eq(0)').css('background', 'red');
+
+            var obj = {
+                0 : 'hehe',
+                1 : 'I am 1',
+                2 : 'I am 2',
+                length: 'test'
+            }
+
+           // alert(obj['length']);
+
+
+            //var someText="web2.0 .net2.0";
+            //var pattern=/(\w+)(\d)\.(\d)/g;
+            //var outCome_exec=pattern.exec(someText);
+            //var outCome_matc=someText.match(pattern);
+
+            //alert("outCome_exec:" + outCome_exec);
+            //alert("outCome_matc:" + outCome_matc);
+
+            var str="Hello world!";
+//look for "Hello"
+            var patt=/Hello/g;
+            var result=patt.exec(str);
+            //alert("Returned value: " + result);
+
+
+            var rquickExpr1 = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/;
+            var rquickExpr = /^\s*<[\w\W]+>[^>]*|#[\w-]*$/;
+            //alert(rquickExpr.exec("#div1"));
+
+            //["<li>hello","<li>", null];
+
+            var str = '<li>1</li><li>2</li><li>3</li><script>alert(4)<\/script>';
+            var arr = jQuery.parseHTML(str);
+            //alert(arr);
+            $('ul').append(str);
+        });
+
+
+    </script>
+</head>
+<body>
+<ul></ul>
+<!--
+<input id="btn" value="test" type="button">
+<ul>test</ul>
+<ul>
+    <li>hahaha</li>
+    <li></li>
+    <li></li>
+</ul>
+-->
+</body>
+</html>

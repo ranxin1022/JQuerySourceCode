@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-2.0.3.js"></script>
+    <script>
+
+        /*
+        jQuery = function( selector, context ) {
+            // The jQuery object is actually just the init constructor 'enhanced'
+            alert("selector:" + selector);
+            alert("context:" + context);
+            //return new jQuery.fn.init( selector, context, rootjQuery );
+        };
+*/
+        //jQuery("test");
+        $(function () {
+            //console.log(jQuery.makeArray('div',{length:0}));
+            //console.log($('div'));//.get().length);
+            $('div').pushStack($('span'));
+            //console.log($('span'));
+
+            var arr = ['a', 'b', 'c'];
+            //console.log($.map(arr, function(elem, i){return elem + i}));
+            //console.log(arr);
+
+            var a={};
+            var b ={name : 'hello'};
+            $.extend(a, b);
+            //a.name = 'hi';
+            console.log("a:" + a.name);
+            console.log("b:" + b.name);     // 结果是hello
+
+
+            var c = {name : {age: 30}};
+            $.extend(true, a, c);
+            a.name.age = 20;
+            console.log("a:" + a.name.age);
+            console.log("c:" + c.name.age); // 结果是30
+
+
+
+        });
+/*
+        $.extend({ // 扩展工具方法
+            aaa : function(){
+                alert(1);
+            },
+            bbb : function(){
+                alert(2);
+            }
+
+        });
+
+        $.fn.extend({ // 扩展实例方法
+            aaa : function(){
+                alert("fn 1");
+            },
+
+            bbb : function(){
+                alert("fn 2");
+            }
+        });
+
+        $.aaa();
+        $().aaa();
+*/
+
+
+var obj = {
+    a : {b : 10}
+};
+
+function copy(obj){
+
+    if( typeof newObj != 'object')
+    {
+        return obj;
+    }
+    var newObj = {};
+
+    /*
+        if(attr instanceof Object){
+            copy(attr);
+        }
+        */
+
+    for(var attr in obj){
+        newObj[attr] = copy(obj[attr]);
+
+
+    }
+    return newObj;
+}
+
+var obj2 = copy(obj);
+obj2.a.b = 20;
+alert(obj.a.b);
+
+    </script>
+</head>
+<body>
+<div>123</div>
+<div>456</div>
+<span>789</span>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+        // 事件委托
+        window.onload = function(){
+            var oUl = document.getElementById('ul1');
+            var aLi = oUl.getElementsByTagName('li');
+
+
+            for(var i = 0; i<aLi.length;i++){
+                aLi[i].onclick = function(){
+                    alert(123);
+                };
+            }
+
+            oUl.onclick = function(){
+                alert(123);
+            };
+        };
+*/
+        /*
+                var a = function aaa(){
+                    alert(1);
+                };
+                //aaa();
+
+                if(true){
+                    var a = function aaa(){
+                        alert(1);
+                    }
+                }else{
+                    var a = function aaa(){
+                        alert(2);
+                    }
+                }
+                a();
+        */
+
+        //(function aaa(){alert(1);})
+
+        /*
+        function aaa(){
+            return bbb();
+        }
+        function bbb(){
+            debugger;
+        }
+        aaa();
+        */
+
+        window
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+    <li>444</li>
+</ul>
+</body>
+</html>
